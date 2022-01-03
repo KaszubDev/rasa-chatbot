@@ -86,3 +86,4 @@ rasa/segment_key
 rasa/keys
 .rasa
 /results/
+credentials.yml

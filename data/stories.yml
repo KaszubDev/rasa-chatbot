@@ -34,4 +34,4 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: menu_question
-  - action: menu_answer
+  - action: utter_menu_answer

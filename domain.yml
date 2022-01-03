@@ -30,7 +30,7 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
 
-  menu_answer:
+  utter_menu_answer:
   - text: "menu response test"
 
 session_config:
