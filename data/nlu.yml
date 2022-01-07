@@ -30,25 +30,6 @@ nlu:
     - bye bye
     - see you later
 
-- intent: affirm
-  examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
-
 - intent: mood_great
   examples: |
     - perfect
@@ -96,3 +77,30 @@ nlu:
     - show me the menu
     - can you give me the menu?
     - what can I eat there?
+
+- lookup: day
+  examples: |
+    - monday
+    - tuesday
+    - wedensday
+    - thursday
+    - friday
+    - saturday
+    - sunday
+
+- intent: opening_hours_question
+  examples: |
+    - what are opening hours?
+    - can you give me opening hours?
+    - at what time it is open?
+    - show me opening hours
+
+- intent: ask_open_given_hour
+  examples: |
+    - is the restaurant open on [monday]{"entity": "day"} at [12]{"entity": "hour"}?
+    - is the restaurant open on [tuesday]{"entity": "day"} at [2]{"entity": "hour"}?
+    - is this open on [wedensday]{"entity": "day"} at [22]{"entity": "hour"}?
+    - is this open on [thursday]{"entity": "day"} at [15]{"entity": "hour"}?
+    - can I come to you on [friday]{"entity": "day"} at [13]{"entity": "hour"}?
+    - is it possible to eat on [saturday]{"entity": "day"} at [19]{"entity": "hour"}?
+    - is it possible to eat on [sunday]{"entity": "day"} at [20]{"entity": "hour"}?
