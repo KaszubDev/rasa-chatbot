@@ -13,8 +13,8 @@ nlu:
     - hey there
     - let's go
     - hey dude
-    - goodmorning
-    - goodevening
+    - good morning
+    - good evening
     - good afternoon
 
 - intent: goodbye
@@ -60,9 +60,28 @@ nlu:
     - unhappy
     - not good
     - not very good
-    - extremly sad
+    - extremely sad
     - so saad
     - so sad
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - correct
+    - of course
+    - yea
+
+- intent: deny
+  examples: |
+    - no
+    - nope
+    - n
+    - never
+    - I don't think so
+    - no way
+    - not really
 
 - intent: bot_challenge
   examples: |
@@ -82,7 +101,7 @@ nlu:
   examples: |
     - monday
     - tuesday
-    - wedensday
+    - wednesday
     - thursday
     - friday
     - saturday
@@ -99,8 +118,16 @@ nlu:
   examples: |
     - is the restaurant open on [monday]{"entity": "day"} at [12]{"entity": "hour"}?
     - is the restaurant open on [tuesday]{"entity": "day"} at [2]{"entity": "hour"}?
-    - is this open on [wedensday]{"entity": "day"} at [22]{"entity": "hour"}?
+    - is this open on [wednesday]{"entity": "day"} at [22]{"entity": "hour"}?
     - is this open on [thursday]{"entity": "day"} at [15]{"entity": "hour"}?
     - can I come to you on [friday]{"entity": "day"} at [13]{"entity": "hour"}?
     - is it possible to eat on [saturday]{"entity": "day"} at [19]{"entity": "hour"}?
     - is it possible to eat on [sunday]{"entity": "day"} at [20]{"entity": "hour"}?
+
+- intent: ask_open_now
+  examples: |
+    - is it open now?
+    - is the restaurant open now?
+    - are you working now?
+    - are you open now?
+    - is it open currently?

@@ -9,11 +9,15 @@ intents:
   - menu_question
   - opening_hours_question
   - ask_open_given_hour
+  - affirm
+  - deny
+  - ask_open_now
 
 actions:
   - action_opening_hours
   - action_answer_if_open
   - action_list_menu_items
+  - action_answer_if_open_now
 
 entities:
   - day
@@ -23,7 +27,13 @@ responses:
   utter_greet:
   - text: "Hey! How are you?"
   - text: "Hey there!"
-  - text: 'Hello! How can I help you?'
+  - text: "Hello! How can I help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_sad:
+  - text: "That's a pity, all the best!"
 
   utter_goodbye:
   - text: "Bye"
@@ -32,6 +42,12 @@ responses:
 
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
+
+  utter_cheer_up:
+  - text: "Hey, don't worry be happy!! xD"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
 
 session_config:
   session_expiration_time: 60

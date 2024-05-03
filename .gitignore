@@ -11,6 +11,7 @@
 *dat
 .env
 venv
+rasa-venv
 .pytest_cache/
 .ipynb_checkpoints
 .ruby-version

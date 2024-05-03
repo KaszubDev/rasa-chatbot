@@ -2,6 +2,7 @@ from typing import Any, Text, Dict, List
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 import json
+from datetime import datetime
 
 class ActionAskForOpeningHours(Action):
     def name(self) -> Text:
@@ -93,5 +94,42 @@ class ActionAskIfOpenGivenTime(Action):
             dispatcher.utter_message(text=f"Yes, the restaurant is open on {day} at {hour}")
         else:
             dispatcher.utter_message(text=f"No, the restaurant is not open on {day} at {hour}")
+
+        return []
+
+class ActionAskIfOpenNow(Action):
+
+    def name(self) -> Text:
+        return "action_answer_if_open_now"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        now = datetime.now()
+        current_day = now.strftime("%A")
+        current_hour = now.hour
+        current_time = now.strftime("%H:%M")
+        current_date = now.strftime("%Y-%m-%d")
+
+        with open('info/opening_hours.json') as opening_hours_file:
+            opening_hours_file_content = json.load(opening_hours_file)
+
+        opening_time_items = opening_hours_file_content.get('items')
+        hours = opening_time_items.get(current_day)
+
+        if hours is None:
+            dispatcher.utter_message(text=f"Today's opening hours are not available.")
+            return []
+
+        opening_hour = hours.get('open')
+        close_hour = hours.get('close')
+
+        dispatcher.utter_message(text=f"Now is {current_date} {current_time}.")
+
+        if (current_hour >= int(opening_hour)) and (current_hour <= int(close_hour)):
+            dispatcher.utter_message(text=f"The restaurant is open now until {close_hour}.")
+        else:
+            dispatcher.utter_message(text=f"The restaurant is not open now.")
 
         return []
