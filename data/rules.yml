@@ -16,3 +16,8 @@ rules:
   steps:
   - intent: bot_challenge
   - action: utter_iamabot
+
+- rule: Always respond to thanks
+  steps:
+  - intent: thanks
+  - action: utter_thanks

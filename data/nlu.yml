@@ -131,3 +131,9 @@ nlu:
     - are you working now?
     - are you open now?
     - is it open currently?
+
+- intent: thanks
+  examples: |
+    - thanks!
+    - thank you
+    - thx
